@@ -1,2 +1,2 @@
 # iTunesSearcher
-Java Service to search songs on iTunes
+REST API Java service to search songs on iTunes
