@@ -10,3 +10,7 @@ myorg/myapp (example name)
 
 Then we can run it by running the following command:
 docker run -p 8080:8080 myorg/myapp
+
+
+docker build -t itunessearcher-postgres-db .
+docker run -d --name iTunesSearcher-postgres-db -p 5432:5432 itunessearcher-postgres-db
