@@ -1,0 +1,13 @@
+services:
+  database:
+    build: ./database
+    ports:
+      - "5432:5432"
+
+  app:
+    depends_on:
+      - database
+    build: .
+    env_file: ./src/main/resources/application.properties
+    ports:
+      - "8080:8080"
