@@ -1,16 +1,35 @@
 # iTunesSearcher
-REST API Java service to search songs on iTunes
+This is a REST API Java service created to search songs on iTunes
 
-Then we can build an image with the following command:
-docker build -t myorg/myapp .
+![](src/main/resources/images/iTunes.png "iTunes searcher")
 
-docker build .
--t (tag option to set a name)
-myorg/myapp (example name)
+> #### About the technologies used
+> - Java (11)
+> - Apache Maven (3.8)
+> - Spring Boot (Web, JPA, Started test)
+> - Lombok
+> - Docker
+> - Postgres Database (42.3.3)
 
-Then we can run it by running the following command:
-docker run -p 8080:8080 myorg/myapp
+
+## How to run
+Run the following command in **iTunesSearcher** directory
+> docker-compose up<br>
+
+Or in case you would like to run the app locally instead of inside a container:
+- Create database image and run database on docker with the following commands standing on **iTunesSearcher/database** directory
+    > docker build -t itunessearcher-postgres-db-image .
+
+    > docker run -d --name iTunesSearcher-postgres-db -p 5432:5432 itunessearcher-postgres-db-image
+- Then build and run the app
+    > mvn clean package
+
+    > java -jar target/iTunesSearcher-0.0.1-SNAPSHOT.jar
 
 
-docker build -t itunessearcher-postgres-db .
-docker run -d --name iTunesSearcher-postgres-db -p 5432:5432 itunessearcher-postgres-db
+## REST API
+- localhost:8080/api/search/song
+
+## Docker structure
+
+## App architecture

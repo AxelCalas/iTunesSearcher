@@ -11,13 +11,14 @@ import org.springframework.web.bind.annotation.RestController;
 import java.util.List;
 
 @RestController
-@RequestMapping("/search")
+@RequestMapping("/api/search")
 public class ClientSearchController {
     @Autowired
     private ClientSearchService clientSearchService;
 
     @GetMapping("/song")
-    public List<Song> getSongsByArtistName(@RequestParam String artist) {
-        return clientSearchService.getSongsByArtistName(artist);
+    public Song[] getSongsByArtistName(@RequestParam String userName,
+                                       @RequestParam String artist) {
+        return clientSearchService.getSongsByArtistName(userName, artist);
     }
 }
